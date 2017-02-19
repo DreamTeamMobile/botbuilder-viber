@@ -1,7 +1,7 @@
 botbuilder-viber
 =======
-
-[![npm](https://img.shields.io/npm/v/botbuilder-viber.svg?style=flat)](https://www.npmjs.com/package/botbuilder-viber)
+<span class="badge-npmversion"><a href="https://npmjs.org/package/botbuilder-viber" title="View this project on NPM"><img src="https://img.shields.io/npm/v/botbuilder-viber.svg" alt="NPM version" /></a></span>
+<span class="badge-npmdownloads"><a href="https://npmjs.org/package/botbuilder-viber" title="View this project on NPM"><img src="https://img.shields.io/npm/dm/botbuilder-viber.svg" alt="NPM downloads" /></a></span>
 
 A node module for Microsoft [BotBuilder Framework](https://github.com/Microsoft/BotBuilder).
 
@@ -40,7 +40,7 @@ Url of the webhook will be the url of your bot appended `/viber/webhook`.
 
 Example: `https://botappservice.azurewebsites.net/viber/webhook`
 
-
+`botbuilder-viber` requires `express` instead of `restify` like most `BotBuilder` samples do.
 
 ## Sending stickers
 ```
