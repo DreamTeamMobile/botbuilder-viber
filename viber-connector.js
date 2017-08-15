@@ -4,6 +4,8 @@ const BotEvents = require('viber-bot').Events;
 const UserProfile = require('viber-bot').UserProfile;
 const VTextMessage = require('viber-bot').Message.Text
 const VPictureMessage = require('viber-bot').Message.Picture
+const VLocationMessage = require('viber-bot').Message.Location
+const VContactMessage = require('viber-bot').Message.Contact
 const VStickerMessage = require('viber-bot').Message.Sticker
 const winston = require('winston');
 const toYAML = require('winston-console-formatter'); // makes the output more friendly
@@ -23,7 +25,7 @@ const logger = function() {
 
 var ViberEnabledConnector = (function() {
     function ViberEnabledConnector(opts) {
-        var self = this;        
+        var self = this;
         this.options = opts || {};
         this.viberBot = new ViberBot({
             authToken: this.options.Token,
@@ -80,7 +82,7 @@ var ViberEnabledConnector = (function() {
         if (rawMessage.type === 'text') {
             msg = msg.text(message.text);
         } else {
-            msg = msg.text('');
+            msg = msg.text('[entity]').addEntity(rawMessage);
         }
         this.handler([msg.toMessage()]);
         return this;
@@ -177,7 +179,7 @@ var ViberEnabledConnector = (function() {
         address.conversation = { id: 'ViberConversationId' }
         done(null, addr);
     }
-    
+
     return ViberEnabledConnector;
 })();
 

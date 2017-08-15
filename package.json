@@ -1,6 +1,6 @@
 {
   "name": "botbuilder-viber",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Viber connector for Microsoft BotBuilder framework",
   "main": "index.js",
   "scripts": {
@@ -15,12 +15,13 @@
   "author": "DreamTeam Mobile",
   "license": "ISC",
   "devDependencies": {
-    "botbuilder": "3.6.0",
-    "viber-bot": "git://github.com/Viber/viber-bot-node.git#2deb4a01848ea3792652ef7c9450ff750130c35c",
+    "botbuilder": "3.9.0",
+    "viber-bot": "1.0.12",
     "winston": "2.3.0",
     "winston-console-formatter": "0.3.1"
   },
   "dependencies": {
-    "async": "2.1.5"
+    "async": "2.1.5",
+    "botbuilder": "^3.9.0"
   }
 }

@@ -11,6 +11,7 @@ This module provides plug-in Viber connector for Microsoft BotBuilder framework.
 
 * sending text, image, buttons, stickers messages
 * receiving text messages
+* receiving non-text messages as text message `[entity]` with `message.entities[0]` filled with raw Viber message.
 
 ## Getting started
 
