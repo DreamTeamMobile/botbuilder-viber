@@ -145,6 +145,28 @@ var ViberEnabledConnector = (function() {
                         }
                     }
                     break;
+                case 'application/vnd.microsoft.card.hero':
+                    // WARNING: Only supports text-only hero cards for this moment
+                    var a = attachment;
+                    if (a.content.buttons && a.content.buttons.length) {
+                        viberKb = {
+                            "Type": "keyboard",
+                            "DefaultHeight": true,
+                            "Buttons": []
+                        };
+                        for (var j = 0; j < a.content.buttons.length; j++) {
+                            var sourceB = a.content.buttons[j];
+                            var b = {
+                                "ActionType": "reply",
+                                "ActionBody": sourceB.value,
+                                "Text": sourceB.title,
+                                "TextSize": "regular"
+                            };
+                            viberKb.Buttons.push(b);
+                        }
+                    }
+                    message.text = message.title + message.subtitle + message.text;
+                    break;
                 case 'image/jpeg':
                     var p = attachment;
                     pictureMessage = new VPictureMessage(p.contentUrl, message.text, null, null, null, new Date(), '');
