@@ -1,6 +1,6 @@
 {
   "name": "botbuilder-viber",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Viber connector for Microsoft BotBuilder framework",
   "main": "index.js",
   "scripts": {

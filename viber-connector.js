@@ -81,8 +81,17 @@ var ViberEnabledConnector = (function() {
         var rawMessage = message.toJson();
         if (rawMessage.type === 'text') {
             msg = msg.text(message.text);
+        } else if (rawMessage.type === 'picture'){
+            msg.text(message.text || 'picture').addAttachment({
+                contentUrl: rawMessage.media,
+                contentType: 'image/jpeg',
+                name: 'viberimage.jpeg'
+            })
         } else {
-            msg = msg.text('[entity]').addEntity(rawMessage);
+            msg = msg.text(message.text || '[json]').addAttachment({
+                payload: rawMessage,
+                contentType: 'object',
+            });
         }
         this.handler([msg.toMessage()]);
         return this;
