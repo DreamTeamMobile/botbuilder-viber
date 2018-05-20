@@ -78,7 +78,7 @@ var ViberEnabledConnector = (function() {
             .timestamp(convertTimestamp(message.timestamp))
             .entities();
 
-        var rawMessage = message.toJson();
+        var rawMessage = JSON.parse(message);
         if (rawMessage.type === 'text') {
             msg = msg.text(message.text);
         } else if (rawMessage.type === 'picture'){
